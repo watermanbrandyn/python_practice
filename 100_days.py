@@ -10,6 +10,7 @@ pet = input("What is your pet's name?\n")
 band = city + " " + pet
 print(f"Your band name is {band}!")
 
+
 # Day 2 projects
 
 # Tip calculator
@@ -31,6 +32,7 @@ per_person_amount = tip_calculator(bill, tip, party)
 # To round to two decimal places and force presentation of both (even if 0 value)
 print(f"Each person should pay ${per_person_amount:.2f}.")
     
+
 # Day 3 projects
 
 # Leap year calculator
@@ -68,5 +70,54 @@ def treasure_island():
         print("You fell into a hole, apologies game is over.")
 
 treasure_island()
+
+
+# Day 4 projects
+
+import random
+
+# Rock, paper, scissors
+
+def play_game():
+    print("Welcome to Rock, Paper, Scissors!\n")
+    player_choice = input("Choose rock, paper or scissors: ").lower()
+    computer_choice = random.randint(1,3)
+    if computer_choice == 1:
+        computer_choice = "rock"
+    elif computer_choice == 2:
+        computer_choice = "paper"
+    else:
+        computer_choice = "scissors"
+
+    print(f"The computer chose {computer_choice}.\n")
+    if player_choice == computer_choice:
+        print("It's a tie!")
+    elif player_choice == "rock":
+        if computer_choice == "scissors":
+            print("You win!")
+        else:
+            print("You lose!")
+    elif player_choice == "paper":
+        if computer_choice == "rock":
+            print("You win!")
+        else:
+            print("You lose!")
+    elif player_choice == "scissors":
+        if computer_choice == "paper":
+            print("You win!")
+        else:
+            print("You lose!")
+
+    print("Do you want to play again? (y/n)\n")
+    answer = input().lower()
+    if answer == "y":
+        play_game()
+    else:
+        print("Thanks for playing!")
+    
+play_game()
+
+
+# Day 5 projects
 
 
