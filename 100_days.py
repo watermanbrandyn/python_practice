@@ -163,6 +163,12 @@ print(f"Your new password is: {password}")
 
 print(f"Your new randomised password is: {''.join(random.sample(password, len(password)))}")
 
+# Day 6 projects
+
+# No projects, use of Reeborg's World for this day
+
+# Day 7 projects
+
 
 
 
