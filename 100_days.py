@@ -169,6 +169,111 @@ print(f"Your new randomised password is: {''.join(random.sample(password, len(pa
 
 # Day 7 projects
 
+# Hangman Game
+
+import random
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+# Example word_list
+word_list = ['aardvark', 'baboon', 'camel']
+
+chosen_word = random.choice(word_list)
+display = []
+for n in range(len(chosen_word)):
+    display.append('_')
+
+lives = 6
+end_of_game = False
+guesses = []
+while not end_of_game:
+    guess = input("Guess a letter: ").lower()
+
+    if guess in guesses:
+        print(f"\nYou already guessed the letter {guess}!\n\")
+    else:
+        guesses.append(guess)
+
+        for i in range(len(chosen_word)):
+            if guess == chosen_word[i]:
+                display[i] = guess
+
+        if guess not in chosen_word:
+            print(f"\nThe letter {guess} is not in the word!\n")
+            lives -= 1
+            if lives == 0:
+                print("You lose!")
+                end_of_game = True
+            else:
+                print(f"You have {lives} lives remaining.")
+
+        if '_' not in display:
+            print("You win!")
+            end_of_game = True
+
+    print(stages[lives])
+    print(display)
+
+# Day 8 projects
+
+
+
+
 
 
 
