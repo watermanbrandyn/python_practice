@@ -271,6 +271,39 @@ while not end_of_game:
 
 # Day 8 projects
 
+# Ceasar cipher
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+def caesar():
+    should_continue = True
+    while should_continue:
+        direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
+        message = ""
+        if direction == "decode":
+            shift *= -1
+        for char in text:
+            if char in alphabet:
+                index = alphabet.index(char)
+                new_index = (index + shift) % len(alphabet)
+                message += alphabet[new_index]
+            else:
+                message += char
+        print(f"Your {direction}d message is: {message}")
+
+        cont = input("Do you want to continue? (y/n)\n").lower()
+        if cont == "n":
+            should_continue = False
+            print("Thanks for using the Caesar cipher!")
+
+caesar()
+
+
+
+
+
 
 
 
