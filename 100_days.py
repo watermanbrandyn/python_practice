@@ -75,6 +75,7 @@ treasure_island()
 # Day 4 projects
 
 import random
+from unicodedata import bidirectional
 
 # Rock, paper, scissors
 
@@ -299,6 +300,28 @@ def caesar():
             print("Thanks for using the Caesar cipher!")
 
 caesar()
+
+# Day 9 projects
+
+# Secret Auction
+
+auction = {}
+still_auction = True
+while still_auction:
+    name = input("Enter the name of the bidder:\n")
+    bid = int(input("Enter the bid price:\n"))
+    auction[name] = bid
+    cont = input("Any more bidders? (y/n)\n").lower()
+    if cont == "n":
+        still_auction = False
+        max_bid = 0
+        for name in auction:
+            if auction[name] > max_bid:
+                max_bid = auction[name]
+                winner = name
+        print(f"The winner is {winner} with a bid of {max_bid}!")
+
+
 
 
 
